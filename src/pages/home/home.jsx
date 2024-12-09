@@ -109,7 +109,6 @@ const HomePage = () => {
   };
 
   const handleDragEnd = (event) => {
-    console.log("fired");
     const { active, over } = event;
     if (over && active.id !== over.id) {
       setGames((items) => {
