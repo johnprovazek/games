@@ -1,0 +1,101 @@
+[
+  {
+    "name": "framed",
+    "id": "0",
+    "selectedId": "V",
+    "textColor": "#ffffff",
+    "backgroundColor": "#0f172a",
+    "link": "https://framed.wtf/",
+    "description": "Guess the movie title in as few frames as possible."
+  },
+  {
+    "name": "travle (usa)",
+    "id": "1",
+    "selectedId": "W",
+    "textColor": "#ddc7a1",
+    "backgroundColor": "#32302f",
+    "link": "https://travle.earth/usa",
+    "description": "Find the shortest path between two states."
+  },
+  {
+    "name": "bandle",
+    "id": "2",
+    "selectedId": "X",
+    "textColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "link": "https://bandle.app/",
+    "description": "Guess the song played by the band."
+  },
+  {
+    "name": "spotle",
+    "id": "3",
+    "selectedId": "Y",
+    "textColor": "#FFFFFF",
+    "backgroundColor": "#121212",
+    "link": "https://spotle.io/",
+    "description": "Guess the musical artist."
+  },
+  {
+    "name": "connections",
+    "id": "4",
+    "selectedId": "Z",
+    "textColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "link": "https://www.nytimes.com/games/connections",
+    "description": "Find common threads between words."
+  },
+  {
+    "name": "mini crossword",
+    "id": "5",
+    "selectedId": "a",
+    "textColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "link": "https://www.nytimes.com/crosswords/game/mini",
+    "description": "Small crossword puzzle."
+  },
+  {
+    "name": "daily dozen trivia",
+    "id": "6",
+    "selectedId": "b",
+    "textColor": "#ffffff",
+    "backgroundColor": "#25003D",
+    "link": "https://dailydozentrivia.com/",
+    "description": "Daily trivia challenge."
+  },
+  {
+    "name": "timeguessr",
+    "link": "https://timeguessr.com/",
+    "id": "7",
+    "selectedId": "c",
+    "textColor": "#DB5049",
+    "backgroundColor": "#eae8dd",
+    "description": "Guess the time and location of a historical photo."
+  },
+  {
+    "name": "contexto",
+    "id": "8",
+    "selectedId": "d",
+    "textColor": "#423232",
+    "backgroundColor": "#FFFBF5",
+    "link": "https://contexto.me/",
+    "description": "Find the secret word."
+  },
+  {
+    "name": "minutecryptic",
+    "id": "9",
+    "selectedId": "e",
+    "textColor": "#000000",
+    "backgroundColor": "#D5E8FF",
+    "link": "https://www.minutecryptic.com/",
+    "description": "Solve the cryptic crossword clue."
+  },
+  {
+    "name": "foodguessr",
+    "id": "A",
+    "selectedId": "f",
+    "textColor": "#000000",
+    "backgroundColor": "#E2E8F0",
+    "link": "https://www.foodguessr.com/daily",
+    "description": "Guess where the dish is from."
+  }
+]

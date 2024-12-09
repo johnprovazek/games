@@ -1,0 +1,22 @@
+{
+  "search.exclude": {
+    "local-dev/": true
+  },
+  "cSpell.words": [
+    "asfalt",
+    "bandle",
+    "cinephiles",
+    "contexto",
+    "dailydozentrivia",
+    "foodguessr",
+    "johnprovazek",
+    "minutecryptic",
+    "nytimes",
+    "scrollbars",
+    "spotle",
+    "timeguessr",
+    "travle",
+    "VWXY",
+    "Zabcdefghijklmnopqrstuvwxyz"
+  ]
+}

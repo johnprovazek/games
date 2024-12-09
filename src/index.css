@@ -1,0 +1,15 @@
+html {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  /* https://www.transparenttextures.com/ */
+  background-color: #f1f3f4;
+  background-image: url("/asfalt-dark.png");
+}
