@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a simple website to list fun daily internet games. This website can be accessed at
+This project is a simple website listing fun daily internet games. This website can be accessed at
 [johnprovazek.com/games](https://www.johnprovazek.com/games).
 
 Built using React, Material UI, and Vite.
@@ -28,3 +28,16 @@ Built using React, Material UI, and Vite.
 | contexto           | Find the secret word.                               | [contexto.me](https://contexto.me/)                                              |
 | minutecryptic      | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                              |
 | foodguessr         | Guess where the dish is from.                       | [foodguessr.com/daily](https://www.foodguessr.com/daily)                         |
+
+## Usage
+
+This project maintains user game preferences using url parameters and local storage. A Base62 encoding scheme limits the system to 31 unique game IDs.
+
+## Credits
+
+[dnd kit](https://dndkit.com/) was used to implement the drag and drop sort feature.
+
+## Bugs & Improvements
+
+- When new games are added this will reset any local storage or url parameter codes.
+- Would be nice to update users with a dialog box anytime new games have been added.
