@@ -21,7 +21,7 @@ const Game = ({ name, id, textColor, backgroundColor, link, description, selecte
                 width: 36,
                 borderRadius: 1,
               }}
-              src={"/icons/" + id + ".ico"}
+              src={"/games/icons/" + id + ".ico"}
             />
             <Typography variant="h5" sx={{ color: textColor, ml: 2 }}>
               {name}
