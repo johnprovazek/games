@@ -12,19 +12,34 @@ import gamesList from "../../assets/data/gamesList.json";
 const b62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const b62Half = 31;
 const b62KeyName = "list";
+const ua = navigator.userAgent.toLowerCase();
+const linksOrderNormal = !(ua.includes("android") && ua.includes("chrome") && ua.includes("mobile"));
+const selectableLinks = !(ua.includes("iphone") || ua.includes("ipad")) || ua.includes("crios");
+
+const gamesToCode = (games) => {
+  let newCode = "";
+  games.forEach((game) => {
+    newCode = newCode + (game.selected ? game.selectedId : game.id);
+  });
+  return newCode;
+};
+
+const codeToGames = (code) => {
+  let decodedGames = [];
+  for (let id of code.split("")) {
+    let selected = b62.indexOf(id) >= b62Half;
+    let object = gamesList.find((obj) => id === (selected ? obj.selectedId : obj.id));
+    if (object) {
+      decodedGames.push({ ...object, selected: selected });
+    }
+  }
+  return decodedGames;
+};
 
 const initGames = () => {
   let code = new URLSearchParams(window.location.search).get(b62KeyName) || localStorage.getItem(b62KeyName);
   if (code && validateCode(code)) {
-    let decodedGameList = [];
-    for (let id of code.split("")) {
-      let selected = b62.indexOf(id) >= b62Half;
-      let object = gamesList.find((obj) => id === (selected ? obj.selectedId : obj.id));
-      if (object) {
-        decodedGameList.push({ ...object, selected: selected });
-      }
-    }
-    return decodedGameList;
+    return codeToGames(code);
   } else {
     return gamesList.map((gameObj) => ({
       ...gameObj,
@@ -101,7 +116,8 @@ const HomePage = () => {
   };
 
   const openGames = () => {
-    games.forEach((game) => {
+    let gamesOrdered = linksOrderNormal ? games : [...games].reverse();
+    gamesOrdered.forEach((game) => {
       if (game.selected) {
         window.open(game.link);
       }
@@ -120,19 +136,24 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    let newCode = "";
-    let allBoxesSelected = true;
-    games.forEach((game) => {
-      newCode = newCode + (game.selected ? game.selectedId : game.id);
-      if (game.selected === false) {
-        allBoxesSelected = false;
-      }
-    });
+    let newCode = gamesToCode(games);
     localStorage.setItem(b62KeyName, newCode);
     const url = new URL(window.location.href);
     url.searchParams.set(b62KeyName, newCode);
     window.history.replaceState({}, "", url.toString());
+    let allBoxesSelected = games.every((game) => game.selected);
     setAllSelected(allBoxesSelected);
+
+    window.addEventListener("storage", () => {
+      const updatedCode = localStorage.getItem(b62KeyName);
+      if (updatedCode !== gamesToCode(games)) {
+        setGames(codeToGames(updatedCode));
+      }
+    });
+
+    return () => {
+      window.removeEventListener("storage", () => {});
+    };
   }, [games]);
 
   return (
@@ -152,14 +173,24 @@ const HomePage = () => {
             <Button
               variant="contained"
               onClick={toggleAll}
-              sx={{ minWidth: "140px", color: "default.black", backgroundColor: "default.white" }}
+              sx={{
+                minWidth: "140px",
+                color: "default.black",
+                backgroundColor: "default.white",
+                display: selectableLinks ? "block" : "none",
+              }}
             >
               {allSelected ? "Deselect All" : "Select All"}
             </Button>
             <Button
               variant="contained"
               onClick={() => openGames()}
-              sx={{ minWidth: "140px", color: "default.black", backgroundColor: "default.white" }}
+              sx={{
+                minWidth: "140px",
+                color: "default.black",
+                backgroundColor: "default.white",
+                display: selectableLinks ? "block" : "none",
+              }}
               onMouseOver={() => setButtonHovered(true)}
               onMouseOut={() => setButtonHovered(false)}
             >
@@ -180,6 +211,7 @@ const HomePage = () => {
                   link={game.link}
                   description={game.description}
                   selected={game.selected}
+                  selectableLinks={selectableLinks}
                   updateSelectionBox={toggleId}
                 />
               ))}

@@ -11,7 +11,17 @@ import IconButton from "@mui/material/IconButton";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const Game = ({ name, id, textColor, backgroundColor, link, description, selected, updateSelectionBox }) => {
+const Game = ({
+  name,
+  id,
+  textColor,
+  backgroundColor,
+  link,
+  description,
+  selected,
+  selectableLinks,
+  updateSelectionBox,
+}) => {
   const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   return (
@@ -38,7 +48,7 @@ const Game = ({ name, id, textColor, backgroundColor, link, description, selecte
               overflowX: "clip",
               textWrap: "nowrap",
               textOverflow: "ellipsis",
-              maxWidth: "calc(100% - 204px)",
+              maxWidth: `calc(100% - ${selectableLinks ? 204 : 108}px)`,
             }}
           >
             {name}
@@ -53,6 +63,7 @@ const Game = ({ name, id, textColor, backgroundColor, link, description, selecte
                 p: 0,
                 color: "default.black",
                 cursor: isDragging ? "grabbing" : "grab",
+                display: selectableLinks ? "inline-flex" : "none",
               }}
             >
               <DragIndicatorIcon />
@@ -64,6 +75,7 @@ const Game = ({ name, id, textColor, backgroundColor, link, description, selecte
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
                 color: "default.black",
+                display: selectableLinks ? "inline-flex" : "none",
               }}
               icon={<CheckBoxOutlineBlankTwoToneIcon />}
               checkedIcon={<CheckBoxTwoToneIcon />}
