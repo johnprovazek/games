@@ -87,6 +87,7 @@ const Game = ({
             <IconButton
               disableRipple
               href={link}
+              target="_blank"
               sx={{ "& .MuiSvgIcon-root": { width: 48, height: 48 }, p: 0, color: "default.black", ml: 1 }}
             >
               <LaunchTwoToneIcon />
