@@ -12,4 +12,5 @@ body {
   /* https://www.transparenttextures.com/ */
   background-color: #f1f3f4;
   background-image: url("/asfalt-dark.png");
+  background-attachment: fixed;
 }
