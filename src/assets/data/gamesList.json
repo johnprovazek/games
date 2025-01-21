@@ -97,5 +97,14 @@
     "backgroundColor": "#E2E8F0",
     "link": "https://www.foodguessr.com",
     "description": "Guess where the dish is from."
+  },
+  {
+    "name": "flagle",
+    "id": "B",
+    "selectedId": "g",
+    "textColor": "#FFFFFF",
+    "backgroundColor": "#14181E",
+    "link": "https://flagle-game.com/daily",
+    "description": "Guess the hidden flag."
   }
 ]
