@@ -28,6 +28,7 @@ Built using React, Material UI, and Vite.
 | contexto           | Find the secret word.                               | [contexto.me](https://contexto.me/)                                              |
 | minutecryptic      | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                              |
 | foodguessr         | Guess where the dish is from.                       | [foodguessr.com](https://www.foodguessr.com)                                     |
+| flagle             | Guess the hidden flag.                              | [flagle.com](https://flagle-game.com/daily)                                      |
 
 ## Usage
 
