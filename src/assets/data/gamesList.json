@@ -106,5 +106,14 @@
     "backgroundColor": "#14181E",
     "link": "https://flagle-game.com/daily",
     "description": "Guess the hidden flag."
+  },
+  {
+    "name": "dailytens",
+    "id": "C",
+    "selectedId": "h",
+    "textColor": "#223c3c",
+    "backgroundColor": "#b5cde2",
+    "link": "https://dailytens.com/",
+    "description": "Determine the top 10 for the given category."
   }
 ]

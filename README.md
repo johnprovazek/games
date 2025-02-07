@@ -29,6 +29,7 @@ Built using React, Material UI, and Vite.
 | minutecryptic      | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                              |
 | foodguessr         | Guess where the dish is from.                       | [foodguessr.com](https://www.foodguessr.com)                                     |
 | flagle             | Guess the hidden flag.                              | [flagle.com](https://flagle-game.com/daily)                                      |
+| dailytens          | Determine the top 10 for the given category.        | [dailytens.com](https://dailytens.com/)                                          |
 
 ## Usage
 
