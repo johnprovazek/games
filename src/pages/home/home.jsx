@@ -7,76 +7,63 @@ import { DndContext, KeyboardSensor, useSensor, useSensors, MouseSensor, TouchSe
 import { arrayMove, SortableContext, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import Game from "../../components/game/game";
-import gamesList from "../../assets/data/gamesList.json";
+import gamesData from "../../assets/data/gamesData.json";
 
-const b62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-const b62Half = 31;
-const b62KeyName = "list";
-const ua = navigator.userAgent.toLowerCase();
-const linksOrderNormal = !(ua.includes("android") && ua.includes("chrome") && ua.includes("mobile"));
-const selectableLinks = !(ua.includes("iphone") || ua.includes("ipad")) || ua.includes("crios");
+const B62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const B62_HALF = 31;
+const B62_KEY_NAME = "list";
+const VERSION_KEY_NAME = "version";
+const LINKS_ORDER_NORMAL = !(
+  navigator.userAgent.toLowerCase().includes("android") &&
+  navigator.userAgent.toLowerCase().includes("chrome") &&
+  navigator.userAgent.toLowerCase().includes("mobile")
+);
+const LINKS_SELECTABLE =
+  !(navigator.userAgent.toLowerCase().includes("iphone") || navigator.userAgent.toLowerCase().includes("ipad")) ||
+  navigator.userAgent.toLowerCase().includes("crios");
 
 const gamesToCode = (games) => {
-  let newCode = "";
-  games.forEach((game) => {
-    newCode = newCode + (game.selected ? game.selectedId : game.id);
-  });
-  return newCode;
+  return games.reduce((code, game) => code + (game.selected ? game.selectedId : game.id), "");
 };
 
 const codeToGames = (code) => {
   let decodedGames = [];
   for (let id of code.split("")) {
-    let selected = b62.indexOf(id) >= b62Half;
-    let object = gamesList.find((obj) => id === (selected ? obj.selectedId : obj.id));
-    if (object) {
-      decodedGames.push({ ...object, selected: selected });
+    let gameSelected = B62.indexOf(id) >= B62_HALF;
+    let gameObject = gamesData.gamesList.find((obj) => id === (gameSelected ? obj.selectedId : obj.id));
+    if (gameObject) {
+      decodedGames.push({ ...gameObject, selected: gameSelected });
     }
   }
   return decodedGames;
 };
 
-const initGames = () => {
-  let code = new URLSearchParams(window.location.search).get(b62KeyName) || localStorage.getItem(b62KeyName);
-  if (code && validateCode(code)) {
-    return codeToGames(code);
-  } else {
-    return gamesList.map((gameObj) => ({
-      ...gameObj,
-      selected: false,
-    }));
-  }
-};
-
-const validateCode = (code) => {
-  let totalGames = gamesList.length;
-  if (code.length !== totalGames) {
+const validateCode = (code, gamesLength) => {
+  if (code.length !== gamesLength) {
     return false; // Length of characters (id) in code doesn't match game count.
   }
-  let parse = Array(b62Half).fill(0);
+  let duplicateCodeArray = Array(B62_HALF).fill(0);
   for (let i = 0; i < code.length; i++) {
-    let index = b62.indexOf(code[i]);
-    if (index !== -1) {
-      let rangeIndex = index % b62Half;
-      if (rangeIndex < totalGames) {
-        let indexCount = parse[rangeIndex] + 1;
-        if (indexCount <= 1) {
-          parse[rangeIndex] = indexCount;
-        } else {
-          return false; // Duplicate character (id) or contains both selected and unselected character (id) values.
-        }
-      } else {
-        return false; // Character (id) isn't valid id yet. In base62 range.
-      }
-    } else {
+    let index = B62.indexOf(code[i]);
+    if (index === -1) {
       return false; // Character (id) Invalid. Not in base62 range.
+    }
+    let rangeIndex = index % B62_HALF;
+    if (rangeIndex > gamesLength) {
+      return false; // Character (id) isn't valid id yet. In base62 range.
+    }
+    let indexCount = duplicateCodeArray[rangeIndex] + 1;
+    if (indexCount > 1) {
+      return false; // Duplicate character (id) or contains both selected and unselected character (id) values.
+    } else {
+      duplicateCodeArray[rangeIndex] = indexCount;
     }
   }
   return true;
 };
 
 const HomePage = () => {
-  const [games, setGames] = useState(initGames());
+  const [games, setGames] = useState(null);
   const [allSelected, setAllSelected] = useState(false);
   const [buttonHovered, setButtonHovered] = useState(false);
 
@@ -116,7 +103,7 @@ const HomePage = () => {
   };
 
   const openGames = () => {
-    let gamesOrdered = linksOrderNormal ? games : [...games].reverse();
+    let gamesOrdered = LINKS_ORDER_NORMAL ? games : [...games].reverse();
     gamesOrdered.forEach((game) => {
       if (game.selected) {
         window.open(game.link);
@@ -136,17 +123,19 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    let newCode = gamesToCode(games);
-    localStorage.setItem(b62KeyName, newCode);
-    const url = new URL(window.location.href);
-    url.searchParams.set(b62KeyName, newCode);
-    window.history.replaceState({}, "", url.toString());
-    let allBoxesSelected = games.every((game) => game.selected);
-    setAllSelected(allBoxesSelected);
+    if (games !== null) {
+      let newCode = gamesToCode(games);
+      localStorage.setItem(B62_KEY_NAME, newCode);
+      const url = new URL(window.location.href);
+      url.searchParams.set(B62_KEY_NAME, newCode);
+      window.history.replaceState({}, "", url.toString());
+      let allBoxesSelected = games.every((game) => game.selected);
+      setAllSelected(allBoxesSelected);
+    }
 
     window.addEventListener("storage", () => {
-      const updatedCode = localStorage.getItem(b62KeyName);
-      if (updatedCode !== gamesToCode(games)) {
+      const updatedCode = localStorage.getItem(B62_KEY_NAME);
+      if (games !== null && updatedCode !== gamesToCode(games)) {
         setGames(codeToGames(updatedCode));
       }
     });
@@ -155,6 +144,31 @@ const HomePage = () => {
       window.removeEventListener("storage", () => {});
     };
   }, [games]);
+
+  useEffect(() => {
+    const defaultGames = gamesData.gamesList.map((gameObject) => ({
+      ...gameObject,
+      selected: false,
+    }));
+
+    let code = new URLSearchParams(window.location.search).get(B62_KEY_NAME) || localStorage.getItem(B62_KEY_NAME);
+    if (code) {
+      let currentVersion = localStorage.getItem(VERSION_KEY_NAME);
+      if (currentVersion && currentVersion < gamesData.version && validateCode(code, code.length)) {
+        let currentGames = codeToGames(code);
+        const currentGamesIds = new Set(currentGames.map((gameObject) => gameObject.id));
+        const missingGames = gamesData.gamesList.filter((gameObject) => !currentGamesIds.has(gameObject.id));
+        setGames([...currentGames, ...missingGames]);
+      } else if (validateCode(code, gamesData.gamesList.length)) {
+        setGames(codeToGames(code));
+      } else {
+        setGames(defaultGames);
+      }
+    } else {
+      setGames(defaultGames);
+    }
+    localStorage.setItem(VERSION_KEY_NAME, gamesData.version);
+  }, []);
 
   return (
     <>
@@ -177,7 +191,7 @@ const HomePage = () => {
                 minWidth: "140px",
                 color: "default.black",
                 backgroundColor: "default.white",
-                display: selectableLinks ? "block" : "none",
+                display: LINKS_SELECTABLE ? "block" : "none",
               }}
             >
               {allSelected ? "Deselect All" : "Select All"}
@@ -189,7 +203,7 @@ const HomePage = () => {
                 minWidth: "140px",
                 color: "default.black",
                 backgroundColor: "default.white",
-                display: selectableLinks ? "block" : "none",
+                display: LINKS_SELECTABLE ? "block" : "none",
               }}
               onMouseOver={() => setButtonHovered(true)}
               onMouseOut={() => setButtonHovered(false)}
@@ -198,26 +212,23 @@ const HomePage = () => {
             </Button>
           </Stack>
         </Box>
-        <Stack spacing={2} mt={2} mb={12}>
-          <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
-            <SortableContext items={games}>
-              {games.map((game) => (
-                <Game
-                  key={game.id}
-                  name={game.name}
-                  id={game.id}
-                  textColor={game.textColor}
-                  backgroundColor={game.backgroundColor}
-                  link={game.link}
-                  description={game.description}
-                  selected={game.selected}
-                  selectableLinks={selectableLinks}
-                  updateSelectionBox={toggleId}
-                />
-              ))}
-            </SortableContext>
-          </DndContext>
-        </Stack>
+        {games && (
+          <Stack spacing={2} mt={2} mb={12}>
+            <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
+              <SortableContext items={games}>
+                {games.map((game) => (
+                  <Game
+                    key={game.id}
+                    id={game.id}
+                    game={game}
+                    selectableLinks={LINKS_SELECTABLE}
+                    updateSelectionBox={toggleId}
+                  />
+                ))}
+              </SortableContext>
+            </DndContext>
+          </Stack>
+        )}
       </Box>
     </>
   );

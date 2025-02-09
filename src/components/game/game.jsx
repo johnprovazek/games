@@ -11,23 +11,13 @@ import IconButton from "@mui/material/IconButton";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const Game = ({
-  name,
-  id,
-  textColor,
-  backgroundColor,
-  link,
-  description,
-  selected,
-  selectableLinks,
-  updateSelectionBox,
-}) => {
+const Game = ({ id, game, selectableLinks, updateSelectionBox }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   return (
     <Card
       ref={setNodeRef}
-      sx={{ backgroundColor: backgroundColor, transform: CSS.Translate.toString(transform), transition }}
+      sx={{ backgroundColor: game.backgroundColor, transform: CSS.Translate.toString(transform), transition }}
     >
       <CardContent>
         <Box display="flex" alignItems="center" sx={{ mb: 1 }}>
@@ -38,12 +28,12 @@ const Game = ({
               width: 36,
               borderRadius: 1,
             }}
-            src={"/games/icons/" + id + ".ico"}
+            src={"/games/icons/" + game.id + ".ico"}
           />
           <Typography
             variant="h5"
             sx={{
-              color: textColor,
+              color: game.textColor,
               ml: 2,
               overflowX: "clip",
               textWrap: "nowrap",
@@ -51,7 +41,7 @@ const Game = ({
               maxWidth: `calc(100% - ${selectableLinks ? 204 : 108}px)`,
             }}
           >
-            {name}
+            {game.name}
           </Typography>
           <Box sx={{ marginLeft: "auto" }}>
             <IconButton
@@ -79,14 +69,14 @@ const Game = ({
               }}
               icon={<CheckBoxOutlineBlankTwoToneIcon />}
               checkedIcon={<CheckBoxTwoToneIcon />}
-              checked={selected}
+              checked={game.selected}
               onChange={() => {
-                updateSelectionBox(id);
+                updateSelectionBox(game.id);
               }}
             />
             <IconButton
               disableRipple
-              href={link}
+              href={game.link}
               target="_blank"
               sx={{ "& .MuiSvgIcon-root": { width: 48, height: 48 }, p: 0, color: "default.black", ml: 1 }}
             >
@@ -94,8 +84,8 @@ const Game = ({
             </IconButton>
           </Box>
         </Box>
-        <Typography variant="body2" sx={{ color: textColor, width: "calc(100% - 100px)" }}>
-          {description}
+        <Typography variant="body2" sx={{ color: game.textColor, width: "calc(100% - 100px)" }}>
+          {game.description}
         </Typography>
       </CardContent>
     </Card>

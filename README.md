@@ -41,5 +41,4 @@ This project maintains user game preferences using url parameters and local stor
 
 ## Bugs & Improvements
 
-- When new games are added this will reset any local storage or url parameter codes.
-- Would be nice to update users with a dialog box anytime new games have been added.
+- Consider adding a dialog box to update user anytime new games have been added.
