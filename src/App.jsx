@@ -1,25 +1,38 @@
-import HomePage from "./pages/home/home.jsx";
 import Container from "@mui/material/Container";
+import HomePage from "./pages/HomePage/HomePage.jsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 let portfolio = createTheme({
   palette: {
     default: {
-      main: "#ffffff",
-      light: "#faf9f6",
-      dark: "#c2c2c2",
-      white: "#ffffff",
-      black: "#444444",
-      contrastText: "#444444",
+      white: "#FFFFFF",
+      grey: "#444444",
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.Mui-disabled": {
+            backgroundColor: "#D3D3D3",
+            color: "#808080",
+          },
+        },
+      },
+    },
     MuiCardContent: {
       styleOverrides: {
         root: {
           "&:last-child": {
             paddingBottom: 16,
           },
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          margin: 16,
         },
       },
     },
@@ -32,7 +45,7 @@ let portfolio = createTheme({
     values: {
       xs: 0,
       sm: 550,
-      md: 900,
+      md: 750,
       lg: 1200,
       xl: 1432,
     },

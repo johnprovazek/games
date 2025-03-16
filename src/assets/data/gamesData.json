@@ -1,122 +1,111 @@
 {
-  "gamesList": [
-    {
-      "name": "framed",
-      "id": "0",
-      "selectedId": "V",
-      "textColor": "#ffffff",
-      "backgroundColor": "#0f172a",
+  "list": [
+    "framed",
+    "travle (usa)",
+    "bandle",
+    "spotle",
+    "connections",
+    "mini crossword",
+    "wordle",
+    "daily dozen trivia",
+    "timeguessr",
+    "contexto",
+    "minutecryptic",
+    "foodguessr",
+    "flagle",
+    "dailytens",
+    "queens"
+  ],
+  "data": {
+    "framed": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#0F172A",
       "link": "https://framed.wtf/",
       "description": "Guess the movie title in as few frames as possible."
     },
-    {
-      "name": "travle (usa)",
-      "id": "1",
-      "selectedId": "W",
-      "textColor": "#ddc7a1",
-      "backgroundColor": "#32302f",
+    "travle (usa)": {
+      "textColor": "#DDC7A1",
+      "backgroundColor": "#32302F",
       "link": "https://travle.earth/usa",
       "description": "Find the shortest path between two states."
     },
-    {
-      "name": "bandle",
-      "id": "2",
-      "selectedId": "X",
+    "bandle": {
       "textColor": "#000000",
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#FFFFFF",
       "link": "https://bandle.app/",
       "description": "Guess the song played by the band."
     },
-    {
-      "name": "spotle",
-      "id": "3",
-      "selectedId": "Y",
+    "spotle": {
       "textColor": "#FFFFFF",
       "backgroundColor": "#121212",
       "link": "https://spotle.io/",
       "description": "Guess the musical artist."
     },
-    {
-      "name": "connections",
-      "id": "4",
-      "selectedId": "Z",
+    "connections": {
       "textColor": "#000000",
       "backgroundColor": "#FFFFFF",
       "link": "https://www.nytimes.com/games/connections",
       "description": "Find common threads between words."
     },
-    {
-      "name": "mini crossword",
-      "id": "5",
-      "selectedId": "a",
+    "mini crossword": {
       "textColor": "#000000",
       "backgroundColor": "#FFFFFF",
       "link": "https://www.nytimes.com/crosswords/game/mini",
       "description": "Small crossword puzzle."
     },
-    {
-      "name": "daily dozen trivia",
-      "id": "6",
-      "selectedId": "b",
-      "textColor": "#ffffff",
+    "wordle": {
+      "textColor": "#000000",
+      "backgroundColor": "#FFFFFF",
+      "link": "https://www.nytimes.com/games/wordle/index.html",
+      "description": "Guess the five-letter word."
+    },
+    "daily dozen trivia": {
+      "textColor": "#FFFFFF",
       "backgroundColor": "#25003D",
       "link": "https://dailydozentrivia.com/",
-      "description": "Daily trivia challenge."
+      "description": "Daily trivia challenges."
     },
-    {
-      "name": "timeguessr",
-      "link": "https://timeguessr.com/",
-      "id": "7",
-      "selectedId": "c",
+    "timeguessr": {
       "textColor": "#DB5049",
-      "backgroundColor": "#eae8dd",
+      "backgroundColor": "#EAE8DD",
+      "link": "https://timeguessr.com/",
       "description": "Guess the time and location of a historical photo."
     },
-    {
-      "name": "contexto",
-      "id": "8",
-      "selectedId": "d",
+    "contexto": {
       "textColor": "#423232",
       "backgroundColor": "#FFFBF5",
       "link": "https://contexto.me/",
       "description": "Find the secret word."
     },
-    {
-      "name": "minutecryptic",
-      "id": "9",
-      "selectedId": "e",
+    "minutecryptic": {
       "textColor": "#000000",
       "backgroundColor": "#D5E8FF",
       "link": "https://www.minutecryptic.com/",
       "description": "Solve the cryptic crossword clue."
     },
-    {
-      "name": "foodguessr",
-      "id": "A",
-      "selectedId": "f",
+    "foodguessr": {
       "textColor": "#000000",
       "backgroundColor": "#E2E8F0",
       "link": "https://www.foodguessr.com",
       "description": "Guess where the dish is from."
     },
-    {
-      "name": "flagle",
-      "id": "B",
-      "selectedId": "g",
+    "flagle": {
       "textColor": "#FFFFFF",
       "backgroundColor": "#14181E",
       "link": "https://flagle-game.com/daily",
       "description": "Guess the hidden flag."
     },
-    {
-      "name": "dailytens",
-      "id": "C",
-      "selectedId": "h",
-      "textColor": "#223c3c",
-      "backgroundColor": "#b5cde2",
+    "dailytens": {
+      "textColor": "#223C3C",
+      "backgroundColor": "#B5CdE2",
       "link": "https://dailytens.com/",
       "description": "Determine the top 10 for the given category."
+    },
+    "queens": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#714C96",
+      "link": "https://www.linkedin.com/games/queens/",
+      "description": "Crown each region."
     }
-  ],
-  "version": 1
+  }
 }

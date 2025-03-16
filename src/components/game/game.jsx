@@ -1,23 +1,27 @@
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxTwoToneIcon from "@mui/icons-material/CheckBoxTwoTone";
 import CheckBoxOutlineBlankTwoToneIcon from "@mui/icons-material/CheckBoxOutlineBlankTwoTone";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
-import LaunchTwoToneIcon from "@mui/icons-material/LaunchTwoTone";
 import IconButton from "@mui/material/IconButton";
+import LaunchTwoToneIcon from "@mui/icons-material/LaunchTwoTone";
+import Typography from "@mui/material/Typography";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const Game = ({ id, game, selectableLinks, updateSelectionBox }) => {
+const Game = ({ id, selected, link, description, textColor, powerMode, backgroundColor, updateSelectionBox }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id });
-
   return (
     <Card
       ref={setNodeRef}
-      sx={{ backgroundColor: game.backgroundColor, transform: CSS.Translate.toString(transform), transition }}
+      sx={{
+        backgroundColor: backgroundColor,
+        transform: CSS.Translate.toString(transform),
+        transition,
+        zIndex: isDragging ? 2 : 1,
+      }}
     >
       <CardContent>
         <Box display="flex" alignItems="center" sx={{ mb: 1 }}>
@@ -28,20 +32,20 @@ const Game = ({ id, game, selectableLinks, updateSelectionBox }) => {
               width: 36,
               borderRadius: 1,
             }}
-            src={"/games/icons/" + game.id + ".ico"}
+            src={`/games/icons/${id.replaceAll(" ", "")}.ico`}
           />
           <Typography
             variant="h5"
             sx={{
-              color: game.textColor,
+              color: textColor,
               ml: 2,
               overflowX: "clip",
               textWrap: "nowrap",
               textOverflow: "ellipsis",
-              maxWidth: `calc(100% - ${selectableLinks ? 204 : 108}px)`,
+              maxWidth: `calc(100% - ${powerMode ? 204 : 108}px)`,
             }}
           >
-            {game.name}
+            {id}
           </Typography>
           <Box sx={{ marginLeft: "auto" }}>
             <IconButton
@@ -51,41 +55,39 @@ const Game = ({ id, game, selectableLinks, updateSelectionBox }) => {
               sx={{
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
-                color: "default.black",
+                color: "default.grey",
                 cursor: isDragging ? "grabbing" : "grab",
-                display: selectableLinks ? "inline-flex" : "none",
+                display: powerMode ? "inline-flex" : "none",
               }}
             >
               <DragIndicatorIcon />
             </IconButton>
             <Checkbox
               disableRipple
-              color="default.black"
+              color="default.grey"
               sx={{
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
-                color: "default.black",
-                display: selectableLinks ? "inline-flex" : "none",
+                color: "default.grey",
+                display: powerMode ? "inline-flex" : "none",
               }}
               icon={<CheckBoxOutlineBlankTwoToneIcon />}
               checkedIcon={<CheckBoxTwoToneIcon />}
-              checked={game.selected}
-              onChange={() => {
-                updateSelectionBox(game.id);
-              }}
+              checked={selected}
+              onChange={() => updateSelectionBox(id)}
             />
             <IconButton
               disableRipple
-              href={game.link}
+              href={link}
               target="_blank"
-              sx={{ "& .MuiSvgIcon-root": { width: 48, height: 48 }, p: 0, color: "default.black", ml: 1 }}
+              sx={{ "& .MuiSvgIcon-root": { width: 48, height: 48 }, p: 0, color: "default.grey", ml: 1 }}
             >
               <LaunchTwoToneIcon />
             </IconButton>
           </Box>
         </Box>
-        <Typography variant="body2" sx={{ color: game.textColor, width: "calc(100% - 100px)" }}>
-          {game.description}
+        <Typography variant="body2" sx={{ color: textColor, mt: 2, width: `calc(100% - 104px)` }}>
+          {description}
         </Typography>
       </CardContent>
     </Card>
