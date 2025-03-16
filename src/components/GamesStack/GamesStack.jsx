@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import Game from "../../components/Game/Game.jsx";
+import Game from "../Game/Game.jsx";
 import { DndContext, KeyboardSensor, useSensor, useSensors, MouseSensor, TouchSensor } from "@dnd-kit/core";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
