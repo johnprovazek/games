@@ -38,7 +38,11 @@ const getServerSnapshot = () => {
 export default function useLocalStorage(key, initialValue, validate) {
   const getSnapshot = () => getItem(key);
 
-  const store = React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const store = React.useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   const setState = React.useCallback(
     (v) => {

@@ -32,6 +32,7 @@ Built using React, Material UI, and Vite.
 | flagle             | Guess the hidden flag.                              | [flagle.com](https://flagle-game.com/daily)                                      |
 | dailytens          | Determine the top 10 for the given category.        | [dailytens.com](https://dailytens.com/)                                          |
 | queens             | Crown each region.                                  | [linkedin.com/games/queens](https://www.linkedin.com/games/queens/)              |
+| thrice             | Five rounds of brain gymnastics.                    | [thrice.geekswhodrink.com](https://thrice.geekswhodrink.com/)                    |
 
 ## Usage
 

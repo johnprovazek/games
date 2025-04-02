@@ -14,7 +14,8 @@
     "foodguessr",
     "flagle",
     "dailytens",
-    "queens"
+    "queens",
+    "thrice"
   ],
   "data": {
     "framed": {
@@ -106,6 +107,12 @@
       "backgroundColor": "#714C96",
       "link": "https://www.linkedin.com/games/queens/",
       "description": "Crown each region."
+    },
+    "thrice": {
+      "textColor": "#353535",
+      "backgroundColor": "#F9EACD",
+      "link": "https://thrice.geekswhodrink.com/",
+      "description": "Five rounds of brain gymnastics."
     }
   }
 }

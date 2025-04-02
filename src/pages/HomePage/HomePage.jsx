@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import GamesStack from "../../components/GamesStack/GamesStack.jsx";
 import Warning from "../../components/Warning/Warning.jsx";
 import gamesData from "../../assets/data/gamesData.json";
-import useLocalStorage from "../../hooks/useLocalStorage.jsx";
+import useLocalStorage from "../../hooks/useLocalStorage.js";
 
 // Safari on iOS allows enabling popups only globally not scoped to individual sites.
 // Disabling power user feature for Safari on iOS users.
