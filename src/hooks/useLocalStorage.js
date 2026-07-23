@@ -70,5 +70,10 @@ export default function useLocalStorage(key, initialValue, validate) {
     }
   }, [key, initialValue, validate]);
 
-  return [store ? JSON.parse(store) : initialValue, setState];
+  const validatedData = React.useMemo(() => {
+    const parsedData = store ? JSON.parse(store) : initialValue;
+    return store && validate ? validate(parsedData) : parsedData;
+  }, [store, initialValue, validate]);
+
+  return [validatedData, setState];
 }

@@ -10,9 +10,13 @@ import LaunchTwoToneIcon from "@mui/icons-material/LaunchTwoTone";
 import Typography from "@mui/material/Typography";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { getLuminance } from "@mui/material/styles";
 
 const Game = ({ id, selected, link, description, textColor, powerMode, backgroundColor, updateSelectionBox }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const isDarkBackground = backgroundColor ? getLuminance(backgroundColor) < 0.3 : false;
+  const launchIconColor = isDarkBackground ? "grey.400" : "default.grey";
+
   return (
     <Card
       ref={setNodeRef}
@@ -80,7 +84,12 @@ const Game = ({ id, selected, link, description, textColor, powerMode, backgroun
               disableRipple
               href={link}
               target="_blank"
-              sx={{ "& .MuiSvgIcon-root": { width: 48, height: 48 }, p: 0, color: "default.grey", ml: 1 }}
+              sx={{
+                "& .MuiSvgIcon-root": { width: 48, height: 48 },
+                p: 0,
+                color: launchIconColor,
+                ml: 1,
+              }}
             >
               <LaunchTwoToneIcon />
             </IconButton>

@@ -9,30 +9,30 @@ Built using React, Material UI, and Vite.
 
 <div align="center">
   <picture>
-    <img src="https://repository-images.githubusercontent.com/896580628/8abe1e12-e043-4aa6-9ee0-3a4fc9db5db6" width="830px">
+    <img src="https://repository-images.githubusercontent.com/896580628/a2c26461-846c-4049-ae33-8abcc959f267" width="830px" alt="Project Thumbnail Image">
   </picture>
 </div>
 
 ## Games List
 
-| Name               | Description                                         | Link                                                                             |
-| ------------------ | --------------------------------------------------- | -------------------------------------------------------------------------------- |
-| framed             | Guess the movie title in as few frames as possible. | [framed.wtf](https://framed.wtf/)                                                |
-| travle (usa)       | Find the shortest path between two states.          | [travle.earth/usa](https://travle.earth/usa)                                     |
-| bandle             | Guess the song played by the band.                  | [bandle.app](https://bandle.app/)                                                |
-| spotle             | Guess the musical artist.                           | [spotle.io](https://spotle.io/)                                                  |
-| connections        | Find common threads between words.                  | [nytimes.com/games/connections](https://www.nytimes.com/games/connections)       |
-| mini crossword     | Small crossword puzzle.                             | [nytimes.com/crosswords/game/mini](https://www.nytimes.com/crosswords/game/mini) |
-| wordle             | Guess the five-letter word.                         | [nytimes.com/games/wordle](https://www.nytimes.com/games/wordle/index.html)      |
-| daily dozen trivia | Daily trivia challenges.                            | [dailydozentrivia.com](https://dailydozentrivia.com/)                            |
-| timeguessr         | Guess the time and location of a historical photo.  | [timeguessr.com](https://timeguessr.com/)                                        |
-| contexto           | Find the secret word.                               | [contexto.me](https://contexto.me/)                                              |
-| minutecryptic      | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                              |
-| foodguessr         | Guess where the dish is from.                       | [foodguessr.com](https://www.foodguessr.com)                                     |
-| flagle             | Guess the hidden flag.                              | [flagle.com](https://flagle-game.com/daily)                                      |
-| dailytens          | Determine the top 10 for the given category.        | [dailytens.com](https://dailytens.com/)                                          |
-| queens             | Crown each region.                                  | [linkedin.com/games/queens](https://www.linkedin.com/games/queens/)              |
-| thrice             | Five rounds of brain gymnastics.                    | [thrice.geekswhodrink.com](https://thrice.geekswhodrink.com/)                    |
+| Name               | Description                                         | Link                                                                        |
+| ------------------ | --------------------------------------------------- | --------------------------------------------------------------------------- |
+| framed             | Guess the movie title in as few frames as possible. | [framed.wtf](https://framed.wtf/)                                           |
+| queens             | Crown each region.                                  | [linkedin.com/games/queens](https://www.linkedin.com/games/queens/)         |
+| connections        | Find common threads between words.                  | [nytimes.com/games/connections](https://www.nytimes.com/games/connections)  |
+| wordle             | Guess the five-letter word.                         | [nytimes.com/games/wordle](https://www.nytimes.com/games/wordle/index.html) |
+| thrice             | Five rounds of brain gymnastics.                    | [thrice.geekswhodrink.com](https://thrice.geekswhodrink.com/)               |
+| daily dozen trivia | Daily trivia challenges.                            | [dailydozentrivia.com](https://dailydozentrivia.com/)                       |
+| daily tens         | Determine the top 10 for the given category.        | [dailytens.com](https://dailytens.com/)                                     |
+| bandle             | Guess the song played by the band.                  | [bandle.app](https://bandle.app/)                                           |
+| spotle             | Guess the musical artist.                           | [spotle.io](https://spotle.io/)                                             |
+| travle (usa)       | Find the shortest path between two states.          | [travle.earth/usa](https://travle.earth/usa)                                |
+| timeguessr         | Guess the time and location of a historical photo.  | [timeguessr.com](https://timeguessr.com/)                                   |
+| smush              | Make words and get points.                          | [hankgreen.com/smush](https://www.hankgreen.com/smush/)                     |
+| flagle             | Guess the hidden flag.                              | [flagle.com](https://flagle-game.com/daily)                                 |
+| contexto           | Find the secret word.                               | [contexto.me](https://contexto.me/)                                         |
+| minute cryptic     | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                         |
+| foodguessr         | Guess where the dish is from.                       | [foodguessr.com](https://www.foodguessr.com)                                |
 
 ## Usage
 

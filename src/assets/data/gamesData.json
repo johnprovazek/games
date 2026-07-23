@@ -1,21 +1,21 @@
 {
   "list": [
     "framed",
-    "travle (usa)",
+    "queens",
+    "connections",
+    "wordle",
+    "thrice",
+    "daily dozen trivia",
+    "daily tens",
     "bandle",
     "spotle",
-    "connections",
-    "mini crossword",
-    "wordle",
-    "daily dozen trivia",
+    "travle (usa)",
     "timeguessr",
-    "contexto",
-    "minutecryptic",
-    "foodguessr",
+    "smush",
     "flagle",
-    "dailytens",
-    "queens",
-    "thrice"
+    "contexto",
+    "minute cryptic",
+    "foodguessr"
   ],
   "data": {
     "framed": {
@@ -24,15 +24,45 @@
       "link": "https://framed.wtf/",
       "description": "Guess the movie title in as few frames as possible."
     },
-    "travle (usa)": {
-      "textColor": "#DDC7A1",
-      "backgroundColor": "#32302F",
-      "link": "https://travle.earth/usa",
-      "description": "Find the shortest path between two states."
+    "queens": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#714C96",
+      "link": "https://www.linkedin.com/games/queens/",
+      "description": "Crown each region."
     },
-    "bandle": {
+    "connections": {
       "textColor": "#000000",
       "backgroundColor": "#FFFFFF",
+      "link": "https://www.nytimes.com/games/connections",
+      "description": "Find common threads between words."
+    },
+    "wordle": {
+      "textColor": "#000000",
+      "backgroundColor": "#FFFFFF",
+      "link": "https://www.nytimes.com/games/wordle/index.html",
+      "description": "Guess the five-letter word."
+    },
+    "thrice": {
+      "textColor": "#353535",
+      "backgroundColor": "#F9EACD",
+      "link": "https://thrice.geekswhodrink.com/",
+      "description": "Five rounds of brain gymnastics."
+    },
+    "daily dozen trivia": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#25003D",
+      "link": "https://dailydozentrivia.com/",
+      "description": "Daily trivia challenges."
+    },
+    "daily tens": {
+      "textColor": "#223C3C",
+      "backgroundColor": "#B5CDE2",
+      "link": "https://dailytens.com/",
+      "description": "Determine the top 10 for the given category."
+    },
+    "bandle": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#08122A",
       "link": "https://bandle.app/",
       "description": "Guess the song played by the band."
     },
@@ -42,29 +72,11 @@
       "link": "https://spotle.io/",
       "description": "Guess the musical artist."
     },
-    "connections": {
-      "textColor": "#000000",
-      "backgroundColor": "#FFFFFF",
-      "link": "https://www.nytimes.com/games/connections",
-      "description": "Find common threads between words."
-    },
-    "mini crossword": {
-      "textColor": "#000000",
-      "backgroundColor": "#FFFFFF",
-      "link": "https://www.nytimes.com/crosswords/game/mini",
-      "description": "Small crossword puzzle."
-    },
-    "wordle": {
-      "textColor": "#000000",
-      "backgroundColor": "#FFFFFF",
-      "link": "https://www.nytimes.com/games/wordle/index.html",
-      "description": "Guess the five-letter word."
-    },
-    "daily dozen trivia": {
-      "textColor": "#FFFFFF",
-      "backgroundColor": "#25003D",
-      "link": "https://dailydozentrivia.com/",
-      "description": "Daily trivia challenges."
+    "travle (usa)": {
+      "textColor": "#DDC7A1",
+      "backgroundColor": "#32302F",
+      "link": "https://travle.earth/usa",
+      "description": "Find the shortest path between two states."
     },
     "timeguessr": {
       "textColor": "#DB5049",
@@ -72,13 +84,25 @@
       "link": "https://timeguessr.com/",
       "description": "Guess the time and location of a historical photo."
     },
+    "smush": {
+      "textColor": "#363636",
+      "backgroundColor": "#FAF7F1",
+      "link": "https://www.hankgreen.com/smush/",
+      "description": "Make words and get points."
+    },
+    "flagle": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#14181E",
+      "link": "https://flagle-game.com/daily",
+      "description": "Guess the hidden flag."
+    },
     "contexto": {
       "textColor": "#423232",
       "backgroundColor": "#FFFBF5",
       "link": "https://contexto.me/",
       "description": "Find the secret word."
     },
-    "minutecryptic": {
+    "minute cryptic": {
       "textColor": "#000000",
       "backgroundColor": "#D5E8FF",
       "link": "https://www.minutecryptic.com/",
@@ -89,30 +113,6 @@
       "backgroundColor": "#E2E8F0",
       "link": "https://www.foodguessr.com",
       "description": "Guess where the dish is from."
-    },
-    "flagle": {
-      "textColor": "#FFFFFF",
-      "backgroundColor": "#14181E",
-      "link": "https://flagle-game.com/daily",
-      "description": "Guess the hidden flag."
-    },
-    "dailytens": {
-      "textColor": "#223C3C",
-      "backgroundColor": "#B5CdE2",
-      "link": "https://dailytens.com/",
-      "description": "Determine the top 10 for the given category."
-    },
-    "queens": {
-      "textColor": "#FFFFFF",
-      "backgroundColor": "#714C96",
-      "link": "https://www.linkedin.com/games/queens/",
-      "description": "Crown each region."
-    },
-    "thrice": {
-      "textColor": "#353535",
-      "backgroundColor": "#F9EACD",
-      "link": "https://thrice.geekswhodrink.com/",
-      "description": "Five rounds of brain gymnastics."
     }
   }
 }
