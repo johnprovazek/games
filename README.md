@@ -33,6 +33,7 @@ Built using React, Material UI, and Vite.
 | contexto           | Find the secret word.                               | [contexto.me](https://contexto.me/)                                         |
 | minute cryptic     | Solve the cryptic crossword clue.                   | [minutecryptic.com](https://www.minutecryptic.com/)                         |
 | foodguessr         | Guess where the dish is from.                       | [foodguessr.com](https://www.foodguessr.com)                                |
+| fermi              | Daily estimation puzzle game.                       | [fermi.gg](https://fermi.gg/)                                               |
 
 ## Usage
 

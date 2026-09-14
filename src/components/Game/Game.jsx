@@ -15,7 +15,7 @@ import { getLuminance } from "@mui/material/styles";
 const Game = ({ id, selected, link, description, textColor, powerMode, backgroundColor, updateSelectionBox }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({ id });
   const isDarkBackground = backgroundColor ? getLuminance(backgroundColor) < 0.3 : false;
-  const launchIconColor = isDarkBackground ? "grey.400" : "default.grey";
+  const iconColor = isDarkBackground ? "grey.400" : "default.grey";
 
   return (
     <Card
@@ -59,7 +59,7 @@ const Game = ({ id, selected, link, description, textColor, powerMode, backgroun
               sx={{
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
-                color: "default.grey",
+                color: iconColor,
                 cursor: isDragging ? "grabbing" : "grab",
                 display: powerMode ? "inline-flex" : "none",
               }}
@@ -72,7 +72,7 @@ const Game = ({ id, selected, link, description, textColor, powerMode, backgroun
               sx={{
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
-                color: "default.grey",
+                color: iconColor,
                 display: powerMode ? "inline-flex" : "none",
               }}
               icon={<CheckBoxOutlineBlankTwoToneIcon />}
@@ -84,10 +84,12 @@ const Game = ({ id, selected, link, description, textColor, powerMode, backgroun
               disableRipple
               href={link}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${id} button`}
               sx={{
                 "& .MuiSvgIcon-root": { width: 48, height: 48 },
                 p: 0,
-                color: launchIconColor,
+                color: iconColor,
                 ml: 1,
               }}
             >

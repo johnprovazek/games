@@ -1,5 +1,6 @@
 {
   "list": [
+    "fermi",
     "framed",
     "queens",
     "connections",
@@ -18,6 +19,12 @@
     "foodguessr"
   ],
   "data": {
+    "fermi": {
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#FF5E3A",
+      "link": "https://fermi.gg/",
+      "description": "Daily estimation puzzle game."
+    },
     "framed": {
       "textColor": "#FFFFFF",
       "backgroundColor": "#0F172A",
